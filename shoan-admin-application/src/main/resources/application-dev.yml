@@ -1,0 +1,62 @@
+# 开发环境配置
+server:
+  port: 8080
+
+spring:
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/fruit_pieces_favorites?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: rootroot
+  
+  # Redis配置
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 1  # 使用数据库1，避免与其他项目冲突
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.fruitpieces.favorites: DEBUG
+    org.springframework.web: DEBUG
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n"
+
+# Knife4j开发环境配置
+knife4j:
+  enable: true
+  basic:
+    enable: true
+    username: admin
+    password: 123456
+  setting:
+    enable-debug: true
+    enable-home-custom: true
+    home-custom-path: classpath:markdown/home.md
+
+# 微信小程序配置（开发环境）
+wechat:
+  miniapp:
+    app-id: wxb738d22971070745
+    app-secret: 28ac96212ae9f63fd171cd126b138afe
+
+# 应用自定义配置
+app:
+  
+  # 链接解析配置
+  link-parser:
+    timeout: 5000  # 开发环境使用较短超时
+    retry-times: 2
+  
+  # 缓存配置（开发环境使用较短TTL）
+  cache:
+    default-ttl: 300  # 5分钟
+    link-info-ttl: 1800  # 30分钟
+    user-info-ttl: 600  # 10分钟
+  
+  # 文件上传配置
+  upload:
+    upload-path: ./uploads/dev/
