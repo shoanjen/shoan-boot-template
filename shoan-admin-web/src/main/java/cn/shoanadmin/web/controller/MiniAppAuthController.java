@@ -29,10 +29,10 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
-public class AuthController {
-
+public class MiniAppAuthController {
+    
     private final WechatAuthService wechatAuthService;
     private final WechatUserService wechatUserService;
 
@@ -84,49 +84,6 @@ public class AuthController {
             throw new BusinessException(BusinessCodeEnum.AUTH_TOKEN_INVALID);
         }
     }
-
-//    /**
-//     * 刷新访问令牌
-//     * 使用当前有效的令牌生成新的令牌
-//     *
-//     * @return 新的访问令牌
-//     */
-//    @PostMapping("/token/refresh")
-//    public ApiResult<Map<String, Object>> refreshToken() {
-//        try {
-//            // 从上下文获取当前用户ID
-//            String userId = UserContext.getCurrentUserId();
-//
-//            if (!StringUtils.hasText(userId)) {
-//                log.warn("刷新令牌失败：用户未登录");
-//                throw new BusinessException(BusinessCodeEnum.AUTH_TOKEN_INVALID);
-//            }
-//
-//            // 验证用户是否存在
-//            WechatUser user = wechatUserService.findById(userId);
-//            if (user == null) {
-//                log.warn("刷新令牌失败：用户不存在，userId={}", userId);
-//                throw new BusinessException(BusinessCodeEnum.AUTH_TOKEN_INVALID);
-//            }
-//
-//            // 生成新的访问令牌
-//            TokenUtil tokenUtil = new TokenUtil();
-//            String newAccessToken = tokenUtil.generateToken(userId, "miniapp");
-//
-//            Map<String, Object> result = new HashMap<>();
-//            result.put("accessToken", newAccessToken);
-//
-//            log.info("刷新令牌成功：userId={}", userId);
-//            return ApiResult.success(result);
-//
-//        } catch (BusinessException e) {
-//            log.error("刷新令牌失败：{}", e.getMessage());
-//            throw e;
-//        } catch (Exception e) {
-//            log.error("刷新令牌异常", e);
-//            throw new BusinessException(BusinessCodeEnum.AUTH_TOKEN_INVALID);
-//        }
-//    }
 
     /**
      * 退出登录

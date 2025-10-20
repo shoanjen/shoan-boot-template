@@ -1,7 +1,7 @@
 package cn.shoanadmin.web.config;
 
 import cn.shoanadmin.web.interceptor.AuthInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,10 +16,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 @Component
+@RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
 
-    @Autowired
-    private AuthInterceptor authInterceptor;
+    private final AuthInterceptor authInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -35,8 +35,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "/swagger-resources/**",
                         "/v3/api-docs/**",
                         "/actuator/**",
-                        "/api/wechat/login",
-                        "/api/wechat/register",
+                        "/api/v1/auth/miniapp/login",
                         "/error"
                 );
     }
