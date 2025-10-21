@@ -12,19 +12,19 @@
     </parent>
 
     <groupId>cn.shoanadmin</groupId>
-    <artifactId>shoan-admin</artifactId>
+    <artifactId>shoan-boot-template</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>shoan-admin</name>
+    <name>shoan-boot</name>
     <description>Multi-module Spring Boot 3 project: common, domain, infrastructure, service, web, application</description>
 
     <modules>
-        <module>shoan-admin-common</module>
-        <module>shoan-admin-domain</module>
-        <module>shoan-admin-infrastructure</module>
-        <module>shoan-admin-service</module>
-        <module>shoan-admin-web</module>
-        <module>shoan-admin-application</module>
+        <module>shoan-boot-common</module>
+        <module>shoan-boot-domain</module>
+        <module>shoan-boot-infrastructure</module>
+        <module>shoan-boot-service</module>
+        <module>shoan-boot-web</module>
+        <module>shoan-boot-application</module>
     </modules>
 
     <properties>

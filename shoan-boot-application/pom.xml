@@ -11,19 +11,19 @@
     </parent>
 
     <artifactId>shoan-boot-application</artifactId>
-    <name>shoan-admin-application</name>
+    <name>shoan-boot-application</name>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>cn.shoanadmin</groupId>
-            <artifactId>shoan-admin-web</artifactId>
+            <artifactId>shoan-boot-web</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!-- 保留原有依赖 -->
         <dependency>
             <groupId>cn.shoanadmin</groupId>
-            <artifactId>shoan-admin-service</artifactId>
+            <artifactId>shoan-boot-service</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

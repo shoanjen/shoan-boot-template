@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>shoan-boot-domain</artifactId>
-    <name>shoan-admin-domain</name>
+    <name>shoan-boot-domain</name>
     <packaging>jar</packaging>
 
     <dependencies>

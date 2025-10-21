@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>shoan-boot-service</artifactId>
-    <name>shoan-admin-service</name>
+    <name>shoan-boot-service</name>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -22,12 +22,12 @@
         </dependency>
         <dependency>
             <groupId>cn.shoanadmin</groupId>
-            <artifactId>shoan-admin-domain</artifactId>
+            <artifactId>shoan-boot-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>cn.shoanadmin</groupId>
-            <artifactId>shoan-admin-infrastructure</artifactId>
+            <artifactId>shoan-boot-infrastructure</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
