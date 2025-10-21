@@ -1,0 +1,65 @@
+# 测试环境配置
+server:
+  port: 8081
+
+spring:
+  # 数据源配置（使用H2内存数据库进行测试）
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  # H2控制台配置
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  # Redis配置（使用嵌入式Redis进行测试）
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 15  # 使用数据库15进行测试
+
+# 日志配置
+logging:
+  level:
+    root: WARN
+    com.fruitpieces.favorites: INFO
+    org.springframework.test: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# 禁用Knife4j
+knife4j:
+  enable: false
+
+# 应用自定义配置
+app:
+  # JWT配置（测试环境）
+  jwt:
+    secret: testSecretKey2024
+    expiration: 3600000  # 1小时
+    refresh-expiration: 7200000  # 2小时
+  
+  # 微信小程序配置（测试环境）
+  wechat:
+    app-id: test_app_id
+    app-secret: test_app_secret
+  
+  # 链接解析配置
+  link-parser:
+    timeout: 3000
+    retry-times: 1
+  
+  # 缓存配置（测试环境使用较短TTL）
+  cache:
+    default-ttl: 60  # 1分钟
+    link-info-ttl: 300  # 5分钟
+    user-info-ttl: 120  # 2分钟
+  
+  # 文件上传配置
+  upload:
+    upload-path: ./uploads/test/
